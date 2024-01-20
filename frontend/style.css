@@ -1,0 +1,12 @@
+.movie-headers {
+  display: flex;
+  gap: 5rem;
+}
+.info {
+  display: inline-block;
+}
+#rated{
+  padding: .5rem 1rem;
+  background-color: green;
+  border-radius: 20px;
+}
