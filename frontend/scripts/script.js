@@ -1,9 +1,8 @@
 $(window).ready(async () => {
-  const data = await fetch(
-    "http://www.omdbapi.com/?i=tt3896198&apikey=e05dcf65&t=Soul",
-  )
-    .then((response) => response.json())
-    .then((data) => {
+  console.log(document.cookie);
+  $.get(
+    `http://www.omdbapi.com/?i=tt3896198&apikey=e05dcf65&t=${document.cookie}`,
+    (data) => {
       console.log(data);
 
       $("#poster").attr("src", data.Poster);
@@ -36,6 +35,6 @@ $(window).ready(async () => {
       $("#actors").text("Actors: " + data.Actors);
       $("#plot").text("Sinopses: " + data.Plot);
       $("#rating").text("Rating: " + data.Ratings[0].Value);
-    })
-    .catch((err) => console.error(err));
+    },
+  );
 });
