@@ -3,11 +3,11 @@ const express = require("express");
 
 const app = express();
 
+const moviesRouter = require("./src/controllers/movies/movieRouter");
+
+app.use(express.json());
 app.use(express.static(path.join(__dirname, "frontend")));
 
-app.get("/hey", (req, res) => {
-  console.log("got it!");
-  res.send("you clicked! ;)");
-});
+app.use("/movies", moviesRouter);
 
 module.exports = app;
