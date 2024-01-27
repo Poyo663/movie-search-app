@@ -31,8 +31,7 @@ async function getCollection(req, res) {
   return res.status(400).json({ message: "obligatory field not found" });
 }
 async function createMovie(req, res) {
-  if (!req.body.title || !req.body.owner)
-    return res.status(400).json({ message: "obligatory field not found" });
+  if (!req.body.title || !req.body.owner) return getCollection(req, res);
 
   const result = await addMovie(
     req.body.title,

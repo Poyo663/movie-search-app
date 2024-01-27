@@ -7,7 +7,7 @@ async function findMovies(collectionTitle) {
   });
 }
 async function findMoviesWithOwner(ownerName) {
-  return await movieModel.findOne({ owner: ownerName }).catch((err) => {
+  return await movieModel.find({ owner: ownerName }).catch((err) => {
     console.error(err);
     return null;
   });
