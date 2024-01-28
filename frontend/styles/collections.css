@@ -1,0 +1,33 @@
+body {
+  height: 100%;
+  background-color: blue;
+}
+
+.collections {
+  height: 10%;
+  display: flex;
+  gap: 1rem;
+  aspect-ratio: 1;
+  background-color: red;
+}
+
+.collections a {
+  color: black;
+  text-decoration: none;
+}
+
+.movie {
+  height: 12rem;
+  display: flex;
+  align-items: end;
+  aspect-ratio: 0.7;
+  background-color: green;
+}
+
+.inside-bar {
+  height: 30%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: pink;
+}
