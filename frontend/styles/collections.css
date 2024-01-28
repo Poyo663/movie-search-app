@@ -11,6 +11,11 @@ body {
   background-color: red;
 }
 
+.collections a {
+  color: black;
+  text-decoration: none;
+}
+
 .movie {
   height: 12rem;
   display: flex;

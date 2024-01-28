@@ -1,5 +1,4 @@
 $(window).ready(async () => {
-  console.log(document.cookie);
   $.get(
     `http://www.omdbapi.com/?i=tt3896198&apikey=e05dcf65&t=${document.cookie}`,
     (data) => {
@@ -37,4 +36,18 @@ $(window).ready(async () => {
       $("#rating").text("Rating: " + data.Ratings[0].Value);
     },
   );
+});
+
+$("#add-me-button").on("click", async () => {
+  const movie = $("#title").text();
+  await fetch("/movies", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      title: "test",
+      movieTitle: movie,
+    }),
+  }).catch((err) => console.error(err));
 });

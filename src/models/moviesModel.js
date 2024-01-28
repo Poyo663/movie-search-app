@@ -12,6 +12,18 @@ async function findMoviesWithOwner(ownerName) {
     return null;
   });
 }
+async function addFilmToCollection(title, movieTitle) {
+  const movie = await movieModel.findOne({ title: title });
+  if (!movie) return null;
+
+  for (const m of movie.movie) {
+    if (m === movieTitle) return null;
+  }
+
+  movie.movie.push(movieTitle);
+  movie.save();
+  return movie;
+}
 async function addMovie(title, owner, collect = []) {
   return await movieModel
     .create({
@@ -28,5 +40,6 @@ async function addMovie(title, owner, collect = []) {
 module.exports = {
   addMovie,
   findMovies,
+  addFilmToCollection,
   findMoviesWithOwner,
 };

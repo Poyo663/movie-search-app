@@ -1,7 +1,8 @@
 const {
+  addMovie,
+  addFilmToCollection,
   findMovies,
   findMoviesWithOwner,
-  addMovie,
 } = require("../../models/moviesModel");
 
 async function getMoviesByName(req, res) {
@@ -45,8 +46,21 @@ async function createMovie(req, res) {
 
   return res.status(201).json(result);
 }
+async function addMovieToCollection(req, res) {
+  console.log(req.body);
+  if (!req.body.title || !req.body.movieTitle)
+    return res.status(400).json({ message: "obligatory field not found" });
+
+  const result = await addFilmToCollection(req.body.title, req.body.movieTitle);
+
+  if (!result)
+    return res
+      .status(500)
+      .json({ message: "something went wrong while retrieving the data" });
+  else return res.status(200).json(result);
+}
 
 module.exports = {
   createMovie,
-  getCollection,
+  addMovieToCollection,
 };
