@@ -47,7 +47,6 @@ async function createMovie(req, res) {
   return res.status(201).json(result);
 }
 async function addMovieToCollection(req, res) {
-  console.log(req.body);
   if (!req.body.title || !req.body.movieTitle)
     return res.status(400).json({ message: "obligatory field not found" });
 
