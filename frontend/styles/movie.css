@@ -1,3 +1,16 @@
+:root {
+  --first-color: #2b2d42;
+  --second-color: #8d99ae;
+  --third-color: #edf2f4;
+  --fourth-color: #ef233c;
+  --fifth-color: #d90429;
+}
+
+body {
+  background-color: black;
+  color: var(--third-color);
+}
+
 .movie-headers {
   display: flex;
   gap: 5rem;
@@ -7,6 +20,19 @@
   display: inline-block;
 }
 
+.poster {
+  display: grid;
+  place-items: center;
+  border: white solid 1px;
+  height: 31rem;
+  aspect-ratio: 2/3;
+}
+
+#poster {
+  height: 30rem;
+  aspect-ratio: 2/3;
+}
+
 #rated {
   padding: 0.5rem 1rem;
   background-color: green;
@@ -14,6 +40,7 @@
 }
 
 .popup-menu {
+  color: black;
   display: none;
   position: absolute;
   height: 60%;

@@ -1,6 +1,32 @@
+:root {
+  --first-color: #2b2d42;
+  --second-color: #8d99ae;
+  --third-color: #edf2f4;
+  --fourth-color: #ef233c;
+  --fifth-color: #d90429;
+}
+
 body {
   height: 100%;
-  background-color: blue;
+}
+
+.navbar {
+  display: flex;
+  margin: 0.5rem 0rem;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: var(--first-color);
+  background-color: var(--third-color);
+  padding: 0.5rem 1rem;
+  margin-left: 1rem;
+  border-radius: 20px;
+  transition: ease-out 150ms all;
+}
+
+.navbar a:hover {
+  transform: translateY(-3px);
 }
 
 .collections {
