@@ -6,16 +6,17 @@
   --fifth-color: #d90429;
 }
 
-.navbar {
-  padding: 1rem;
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--fourth-color);
+body {
+  height: 100vh;
 }
 
-.navbar a {
+.space {
+  display: flex;
+  align-items: center;
+  height: 20%;
+}
+
+a {
   text-decoration: none;
   color: var(--first-color);
   background-color: var(--third-color);
@@ -25,22 +26,6 @@
   transition: ease-out 150ms all;
 }
 
-.navbar a:hover {
+a:hover {
   transform: translateY(-3px);
-}
-
-.navbar input {
-  height: 1.8rem;
-  width: 50%;
-}
-
-.navbar button {
-  color: var(--first-color);
-  background-color: var(--third-color);
-  padding: 0.3rem 0.4rem;
-  border-radius: 50px;
-}
-
-.navbar button:hover {
-  cursor: pointer;
 }

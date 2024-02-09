@@ -16,6 +16,7 @@ function fillMovies(element) {
 }
 async function getRequest() {
   $.get(`http://www.omdbapi.com/?s=${input.value}&apikey=e05dcf65`, (data) => {
+    input.value = "";
     $(".movies").empty();
     data.Search.forEach(fillMovies);
   });

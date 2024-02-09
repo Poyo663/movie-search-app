@@ -9,7 +9,9 @@
   </head>
   <body>
     <div class="movie-headers">
-      <img id="poster" src="" alt="" />
+      <div class="poster">
+        <img id="poster" src="" alt="" />
+      </div>
       <div class="info">
         <h1 id="title"></h1>
         <p id="date"></p>
@@ -24,7 +26,14 @@
         <button type="button" id="add-me-button">add me</button>
       </div>
     </div>
+    <div class="popup-menu">
+      <button type="button" class="exit">X</button>
+      <div class="list"></div>
+      <button type="button" id="add">add to list(s)</button>
+    </div>
 
+    <a href="/collections.html">go to the movies</a>
+    <a href="/search.html">search more movies</a>
     <script src="scripts/movie.js"></script>
   </body>
 </html>

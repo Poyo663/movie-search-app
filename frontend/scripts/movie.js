@@ -1,4 +1,34 @@
+const user = "anna";
+
+function makeListItem(name) {
+  const div = $("<div class='list-item'></div>");
+  const checkbox = $("<input type='checkbox' />");
+  const text = $(`<text>${name}</text>`);
+
+  $(div).append(checkbox);
+  $(div).append(text);
+
+  return div;
+}
 $(window).ready(async () => {
+  //populate the collections list
+  await fetch("/movies", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      owner: user,
+    }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      for (const c of data) {
+        $(".list").append(makeListItem(c.title));
+      }
+    });
+
+  //get the movie data
   $.get(
     `http://www.omdbapi.com/?i=tt3896198&apikey=e05dcf65&t=${document.cookie}`,
     (data) => {
@@ -38,16 +68,29 @@ $(window).ready(async () => {
   );
 });
 
+$(".exit").on("click", () => {
+  $(".popup-menu").hide();
+});
 $("#add-me-button").on("click", async () => {
-  const movie = $("#title").text();
-  await fetch("/movies", {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      title: "test",
-      movieTitle: movie,
-    }),
-  }).catch((err) => console.error(err));
+  $(".popup-menu").show();
+});
+$("#add").on("click", async () => {
+  for (const element of document.querySelector(".list").children) {
+    if (element.firstChild.checked == false) continue;
+
+    const name = element.lastChild.textContent;
+    const movie = $("#title").text();
+
+    await fetch("/movies", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title: name,
+        movieTitle: movie,
+      }),
+    }).catch((err) => console.error(err));
+  }
+  $(".popup-menu").hide();
 });
